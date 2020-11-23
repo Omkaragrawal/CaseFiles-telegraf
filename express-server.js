@@ -5,13 +5,21 @@ const {
     session
 } = require('telegraf');
 
+if (!process.env.NODE_ENV || process.env.NODE_ENV !== "production") {
+    const dotenv = require('dotenv').config();
+};
 const bot = new Telegraf(process.env.bot_token);
 const pool = require('./db');
 const createAddDocument = require("./scenes/addDocument");
 const createAbruptCloseScene = require("./scenes/abruptClose");
 const createCloseScene = require("./scenes/close");
 
-
+if (!process.env.NODE_ENV || process.env.NODE_ENV !== "production") {
+    const {
+        generateUpdateMiddleware
+    } = require('telegraf-middleware-console-time');
+    bot.use(generateUpdateMiddleware());
+};
 const stage = new Stage([
     createAddDocument("ADD_DOCUMENT", async (ctx) => {
         ctx.reply("Completed the task of adding document[s] exiting now");
@@ -62,14 +70,18 @@ bot.command('/close', (ctx, next) => {
 
 bot.command('newdoc', Stage.enter("ADD_DOCUMENT"));
 
-bot.telegram.setWebhook('https://caseFileBot.ml/bot');
+bot.telegram.setWebhook('https://casefilebot.ml/bot');
+// bot.telegram.setWebhook('https://b66bac7e47ad.ngrok.io/bot');
 
 const app = express();
 
-app.get('/', (req, res) => res.redirect('https://github.com/Omkaragrawal/CaseFiles-telegraf'));
+app.get('/', (req, res) => {
+    console.log("Inside /");
+    res.redirect('https://github.com/Omkaragrawal/CaseFiles-telegraf')
+});
 
 app.use(bot.webhookCallback('/bot'));
 
-app.listen(process.env.PORT, () => {
-    console.log('Example app listening on port 3000!')
+app.listen(process.env.PORT || 8080, () => {
+    console.log('Example app listening on port ' + process.env.PORT || 8080)
 });
