@@ -80,7 +80,7 @@ bot.on('document', (ctx, next) => {
 
 bot.command('/close', (ctx, next) => {
     // ctx.telegram.leaveChat(ctx.chat.id);
-    ctx.reply(ctx.message);
+    ctx.reply("No work was going on. ZZzzz");
 
 });
 
