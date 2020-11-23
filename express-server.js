@@ -74,7 +74,9 @@ bot.telegram.setWebhook('https://casefilebot.ml/bot');
 // bot.telegram.setWebhook('https://b66bac7e47ad.ngrok.io/bot');
 
 const app = express();
-
+if(process.env.NODE_ENV || process.env.NODE_ENV === "production") {
+app.set("trust-proxy", true);
+}
 app.get('/', (req, res) => {
     console.log("Inside /");
     res.redirect('https://github.com/Omkaragrawal/CaseFiles-telegraf')
