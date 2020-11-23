@@ -1,0 +1,23 @@
+{
+  "name": "ocr-telegram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OMKAR AGRAWAL <omkar3654@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.17.1",
+    "fs-extra": "9.0.1",
+    "tesseract.js": "2.1.4",
+    "workerpool": "6.0.3"
+  },
+  "devDependencies": {
+    "canvas": "2.6.1",
+    "pdfjs-dist": "2.5.207"
+  }
+}
