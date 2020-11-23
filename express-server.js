@@ -70,7 +70,7 @@ bot.command('/close', (ctx, next) => {
 
 bot.command('newdoc', Stage.enter("ADD_DOCUMENT"));
 
-bot.telegram.setWebhook('https://casefilebot.ml/bot');
+bot.telegram.setWebhook('https://telegram-maa-bot.herokuapp.com/bot');
 // bot.telegram.setWebhook('https://b66bac7e47ad.ngrok.io/bot');
 
 const app = express();
