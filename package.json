@@ -4,7 +4,7 @@
   "description": "This bot manages casefiles over telegram using telegraf. Primarily made for personal use",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node express-server.js",
     "dev": "nodemon npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Omkaragrawal/CaseFiles-telegraf#readme",
   "dependencies": {
     "axios": "0.21.0",
+    "express": "4.17.1",
     "pg": "8.5.1",
     "telegraf": "3.38.0",
     "telegraf-middleware-console-time": "1.2.0"
