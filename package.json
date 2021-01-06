@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Omkaragrawal/CaseFiles-telegraf#readme",
   "dependencies": {
-    "axios": "0.21.0",
+    "axios": "0.21.1",
     "express": "4.17.1",
     "pg": "8.5.1",
     "telegraf": "3.38.0",
